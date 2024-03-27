@@ -1,0 +1,12 @@
+#!/bin/bash
+
+string=""
+input=""
+while [ "$input" != "q" ]; do
+    read -r input
+    if [ "$input" != "q" ]; then
+        string="$string$input "
+    fi
+done
+
+echo $string

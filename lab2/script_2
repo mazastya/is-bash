@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pgrep -f "/sbin/" > process_pid.txt
+echo "Список PID процессов, запущенных командами из /sbin/, сохранен в файл process_pid.txt."

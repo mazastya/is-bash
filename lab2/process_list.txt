@@ -1,0 +1,121 @@
+    PID COMMAND
+   4095 /lib/systemd/systemd --user
+   4096 (sd-pam)
+   4102 /usr/bin/pipewire
+   4103 /usr/bin/pipewire-media-session
+   4104 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+   4105 /snap/snapd-desktop-integration/83/usr/bin/snapd-desktop-integration
+   4114 /usr/bin/gnome-keyring-daemon --daemonize --login
+   4124 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+   4135 /usr/libexec/gvfsd
+   4139 /usr/libexec/xdg-document-portal
+   4141 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
+   4152 /usr/libexec/xdg-permission-store
+   4170 /usr/libexec/tracker-miner-fs-3
+   4183 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   4186 /usr/libexec/gnome-session-binary --session=ubuntu
+   4212 /usr/libexec/gvfs-udisks2-volume-monitor
+   4227 /usr/libexec/gnome-session-ctl --monitor
+   4240 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu
+   4245 /usr/libexec/gvfs-mtp-volume-monitor
+   4251 /usr/libexec/gvfs-afc-volume-monitor
+   4258 /usr/libexec/gvfs-gphoto2-volume-monitor
+   4265 /usr/libexec/gvfs-goa-volume-monitor
+   4273 /usr/libexec/goa-daemon
+   4274 /usr/libexec/at-spi-bus-launcher --launch-immediately
+   4278 /usr/bin/gnome-shell
+   4284 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus
+   4296 /usr/libexec/goa-identity-service
+   4382 /snap/snapd-desktop-integration/83/usr/bin/snapd-desktop-integration
+   4386 /usr/libexec/xdg-desktop-portal
+   4390 /usr/libexec/xdg-desktop-portal-gnome
+   4396 /usr/libexec/gnome-shell-calendar-server
+   4402 /usr/libexec/evolution-source-registry
+   4410 /usr/libexec/evolution-calendar-factory
+   4411 /usr/libexec/dconf-service
+   4424 /usr/libexec/evolution-addressbook-factory
+   4438 /usr/libexec/gvfsd-trash --spawner :1.3 /org/gtk/gvfs/exec_spaw/0
+   4451 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications
+   4453 /usr/libexec/at-spi2-registryd --use-gnome-session
+   4468 sh -c /usr/bin/ibus-daemon --panel disable $([ "$XDG_SESSION_TYPE" = "x11" ] && echo "--xim")
+   4469 /usr/libexec/gsd-a11y-settings
+   4471 /usr/bin/ibus-daemon --panel disable
+   4472 /usr/libexec/gsd-color
+   4473 /usr/libexec/gsd-datetime
+   4475 /usr/libexec/gsd-housekeeping
+   4477 /usr/libexec/gsd-keyboard
+   4481 /usr/libexec/gsd-media-keys
+   4482 /usr/libexec/gsd-power
+   4483 /usr/libexec/gsd-print-notifications
+   4485 /usr/libexec/gsd-rfkill
+   4486 /usr/libexec/gsd-screensaver-proxy
+   4487 /usr/libexec/gsd-sharing
+   4492 /usr/libexec/gsd-smartcard
+   4494 /usr/libexec/gsd-sound
+   4500 /usr/libexec/gsd-wacom
+   4548 /usr/libexec/evolution-data-server/evolution-alarm-notify
+   4551 /usr/libexec/ibus-memconf
+   4552 /usr/libexec/gsd-disk-utility-notify
+   4553 /usr/libexec/ibus-extension-gtk3
+   4557 /usr/libexec/ibus-portal
+   4584 /usr/libexec/gsd-printer
+   4620 /snap/snap-store/959/usr/bin/snap-store --gapplication-service
+   4660 /usr/libexec/ibus-engine-simple
+   4746 /usr/libexec/xdg-desktop-portal-gtk
+   4791 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.ScreenSaver
+   4908 /usr/libexec/gvfsd-metadata
+   5715 /snap/firefox/3836/usr/lib/firefox/firefox
+   5950 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -parentBuildID 20240214103141 -prefsLen 39078 -prefMapSize 241998 -appDir /snap/firefox/3836/usr/lib/firefox/browser {1ea298d8-bafb-4965-b62c-934b2829c656} 5715 true socket
+   5972 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 1 -isForBrowser -prefsLen 39219 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {478cf63c-358b-403d-8e7a-2c23e0118ec0} 5715 true tab
+   6012 /usr/bin/snap userd
+   6102 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 44381 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {37e2d66e-49d9-45bc-a3a2-f1b1d6d86434} 5715 true tab
+   6295 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -parentBuildID 20240214103141 -sandboxingKind 0 -prefsLen 44412 -prefMapSize 241998 -appDir /snap/firefox/3836/usr/lib/firefox/browser {dcf0a98a-99e5-4cd8-bd8c-e0c201650bae} 5715 true utility
+   6307 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 3 -isForBrowser -prefsLen 33303 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {5c5650b5-6e50-40d8-91e3-bb1419588f0d} 5715 true tab
+   6311 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 4 -isForBrowser -prefsLen 33303 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {6d98f443-adfc-4a52-9ee3-13f274168b1c} 5715 true tab
+   6343 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 5 -isForBrowser -prefsLen 33303 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {2ac4dd12-e3aa-43e9-a64f-a6ce662965b0} 5715 true tab
+   6401 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 6 -isForBrowser -prefsLen 33360 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {58b1ee9e-6e55-4e9d-9d5a-3062c2af9d90} 5715 true tab
+   6406 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 7 -isForBrowser -prefsLen 33360 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {8e2751c3-4b04-464b-a0d8-bf43736b84e7} 5715 true tab
+   6467 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 8 -isForBrowser -prefsLen 33360 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {7dcd8b9f-1455-4804-8d19-f75852a0eb77} 5715 true tab
+   6893 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -parentBuildID 20240214103141 -prefsLen 44563 -prefMapSize 241998 -appDir /snap/firefox/3836/usr/lib/firefox/browser {e47f6ff3-360b-46bb-81b2-fa5e5ff106a7} 5715 true rdd
+   7116 psensor
+   7124 /usr/bin/Xwayland :0 -rootless -noreset -accessx -core -auth /run/user/1000/.mutter-Xwaylandauth.22SRJ2 -listen 4 -listen 5 -displayfd 6 -initfd 7
+   7145 /usr/libexec/gsd-xsettings
+   7177 /usr/libexec/ibus-x11
+   7475 update-notifier
+   9088 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 26 -isForBrowser -prefsLen 33498 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {e48bda8f-51ce-4d67-ad56-51385911543a} 5715 true tab
+   9258 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 28 -isForBrowser -prefsLen 33498 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {02d51f60-239c-462e-9eb7-14e9cc8b6601} 5715 true tab
+   9913 /snap/intellij-idea-ultimate/478/jbr/bin/java -classpath /snap/intellij-idea-ultimate/478/lib/platform-loader.jar:/snap/intellij-idea-ultimate/478/lib/util-8.jar:/snap/intellij-idea-ultimate/478/lib/util.jar:/snap/intellij-idea-ultimate/478/lib/app-client.jar:/snap/intellij-idea-ultimate/478/lib/util_rt.jar:/snap/intellij-idea-ultimate/478/lib/product.jar:/snap/intellij-idea-ultimate/478/lib/product-client.jar:/snap/intellij-idea-ultimate/478/lib/app.jar:/snap/intellij-idea-ultimate/478/lib/lib-client.jar:/snap/intellij-idea-ultimate/478/lib/modules.jar:/snap/intellij-idea-ultimate/478/lib/lib.jar:/snap/intellij-idea-ultimate/478/lib/stats.jar:/snap/intellij-idea-ultimate/478/lib/jps-model.jar:/snap/intellij-idea-ultimate/478/lib/external-system-rt.jar:/snap/intellij-idea-ultimate/478/lib/rd.jar:/snap/intellij-idea-ultimate/478/lib/protobuf.jar:/snap/intellij-idea-ultimate/478/lib/bouncy-castle.jar:/snap/intellij-idea-ultimate/478/lib/forms_rt.jar:/snap/intellij-idea-ultimate/478/lib/intellij-test-discovery.jar:/snap/intellij-idea-ultimate/478/lib/annotations.jar:/snap/intellij-idea-ultimate/478/lib/groovy.jar:/snap/intellij-idea-ultimate/478/lib/externalProcess-rt.jar:/snap/intellij-idea-ultimate/478/lib/async-profiler.jar:/snap/intellij-idea-ultimate/478/lib/byte-buddy-agent.jar:/snap/intellij-idea-ultimate/478/lib/error-prone-annotations.jar:/snap/intellij-idea-ultimate/478/lib/grpc.jar:/snap/intellij-idea-ultimate/478/lib/idea_rt.jar:/snap/intellij-idea-ultimate/478/lib/intellij-coverage-agent-1.0.738.jar:/snap/intellij-idea-ultimate/478/lib/jsch-agent.jar:/snap/intellij-idea-ultimate/478/lib/junit4.jar:/snap/intellij-idea-ultimate/478/lib/nio-fs.jar:/snap/intellij-idea-ultimate/478/lib/ant/lib/ant.jar -XX:ErrorFile=/home/mazastya/java_error_in_idea_%p.log -XX:HeapDumpPath=/home/mazastya/java_error_in_idea_.hprof -Xms128m -Xmx2048m -XX:ReservedCodeCacheSize=512m -XX:+UseG1GC -XX:SoftRefLRUPolicyMSPerMB=50 -XX:CICompilerCount=2 -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -XX:+IgnoreUnrecognizedVMOptions -XX:CompileCommand=exclude,com/intellij/openapi/vfs/impl/FilePartNodeRoot,trieDescend -ea -Dsun.io.useCanonCaches=false -Dsun.java2d.metal=true -Djbr.catch.SIGABRT=true -Djdk.http.auth.tunneling.disabledSchemes="" -Djdk.attach.allowAttachSelf=true -Djdk.module.illegalAccess.silent=true -Dkotlinx.coroutines.debug=off -Dsun.tools.attach.tmp.only=true -Dawt.lock.fair=true -Xmx2048m -Djb.vmOptionsFile=/home/mazastya/.config/JetBrains/IntelliJIdea2023.3/idea64.vmoptions -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader -Didea.vendor.name=JetBrains -Didea.paths.selector=IntelliJIdea2023.3 -Djna.boot.library.path=/snap/intellij-idea-ultimate/478/lib/jna/amd64 -Dpty4j.preferred.native.folder=/snap/intellij-idea-ultimate/478/lib/pty4j -Djna.nosys=true -Djna.noclasspath=true -Dintellij.platform.runtime.repository.path=/snap/intellij-idea-ultimate/478/modules/module-descriptors.jar -Dsplash=true -Daether.connector.resumeDownloads=false --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.ref=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.base/java.time=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens=java.base/jdk.internal.vm=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.fs=ALL-UNNAMED --add-opens=java.base/sun.security.ssl=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED --add-opens=java.base/sun.net.dns=ALL-UNNAMED --add-opens=java.desktop/com.sun.java.swing.plaf.gtk=ALL-UNNAMED --add-opens=java.desktop/java.awt=ALL-UNNAMED --add-opens=java.desktop/java.awt.dnd.peer=ALL-UNNAMED --add-opens=java.desktop/java.awt.event=ALL-UNNAMED --add-opens=java.desktop/java.awt.image=ALL-UNNAMED --add-opens=java.desktop/java.awt.peer=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED --add-opens=java.desktop/javax.swing.text.html=ALL-UNNAMED --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED --add-opens=java.desktop/sun.awt.datatransfer=ALL-UNNAMED --add-opens=java.desktop/sun.awt.image=ALL-UNNAMED --add-opens=java.desktop/sun.awt=ALL-UNNAMED --add-opens=java.desktop/sun.font=ALL-UNNAMED --add-opens=java.desktop/sun.java2d=ALL-UNNAMED --add-opens=java.desktop/sun.swing=ALL-UNNAMED --add-opens=java.desktop/com.sun.java.swing=ALL-UNNAMED --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED --add-opens=jdk.jdi/com.sun.tools.jdi=ALL-UNNAMED com.intellij.idea.Main
+  10104 /snap/intellij-idea-ultimate/478/bin/fsnotifier
+  11377 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 36 -isForBrowser -prefsLen 33498 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {d7b184c1-c554-4335-8ac1-7e2771d0f412} 5715 true tab
+  11636 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 41 -isForBrowser -prefsLen 33498 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {1f1d43f8-0a69-4549-b9c6-6fa3a7c1dd57} 5715 true tab
+  11757 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 42 -isForBrowser -prefsLen 33498 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {8ce6f3c8-6055-408b-9a22-fff087d439b2} 5715 true tab
+  16619 /usr/lib/bluetooth/obexd
+  16863 /usr/libexec/gvfsd-http --spawner :1.3 /org/gtk/gvfs/exec_spaw/1
+  17935 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 51 -isForBrowser -prefsLen 33545 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {7bc57ffb-f89d-4caf-bce4-7a8f07e31384} 5715 true tab
+  18524 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 53 -isForBrowser -prefsLen 33545 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {513f0819-7d45-4772-af93-7f2ab3dc1ec3} 5715 true tab
+  29958 /snap/telegram-desktop/5581/usr/bin/telegram-desktop --
+  39710 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 100 -isForBrowser -prefsLen 33664 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {363b7a30-28d7-4990-89e0-6138b4cc0721} 5715 true tab
+  39752 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 101 -isForBrowser -prefsLen 33664 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {eefd2a54-f67c-416f-aa41-a3633620aa5d} 5715 true tab
+  50903 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 147 -isForBrowser -prefsLen 33663 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {d3339aca-9011-426b-8b3c-f26e90552ba3} 5715 true tab
+  53869 /usr/bin/speech-dispatcher -s -t 0
+  53880 [sd_espeak-ng-mb] <defunct>
+  53883 /usr/lib/speech-dispatcher-modules/sd_espeak-ng /etc/speech-dispatcher/modules/espeak-ng.conf
+  53888 /usr/lib/speech-dispatcher-modules/sd_dummy /etc/speech-dispatcher/modules/dummy.conf
+  54332 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 156 -isForBrowser -prefsLen 33664 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {92dba921-1029-4255-9e0d-df89ef24ff29} 5715 true tab
+  59038 /usr/libexec/gvfsd-network --spawner :1.3 /org/gtk/gvfs/exec_spaw/2
+  59051 /usr/libexec/gvfsd-dnssd --spawner :1.3 /org/gtk/gvfs/exec_spaw/4
+  69967 gjs /usr/share/gnome-shell/extensions/ding@rastersoft.com/ding.js -E -P /usr/share/gnome-shell/extensions/ding@rastersoft.com -M 0 -D 0:0:1920:1080:1:27:0:0:0:0
+  79285 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 253 -isForBrowser -prefsLen 33755 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {8905ae7c-2ac7-4800-ab09-108da9b43c54} 5715 true tab
+  79895 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 257 -isForBrowser -prefsLen 33755 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {a33dcd4d-34c0-408d-8776-783b73db1f61} 5715 true tab
+  81070 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 269 -isForBrowser -prefsLen 33754 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {25febed7-78e6-4c77-bb1f-e728ff72b374} 5715 true tab
+  87437 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 296 -isForBrowser -prefsLen 33754 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {d02171f7-5cf3-47dd-8f59-d01e8bd5b223} 5715 true tab
+  87477 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 297 -isForBrowser -prefsLen 33754 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {4c694fda-d78d-40f9-9590-646c31ea4ea3} 5715 true tab
+  87571 evince /home/mazastya/Downloads/Telegram Desktop/OS_lab2.pdf
+  87578 /usr/libexec/evinced
+  87603 /usr/bin/python3 /usr/bin/gnome-terminal --wait
+  87606 /usr/bin/gnome-terminal.real --wait
+  87611 /usr/libexec/gnome-terminal-server
+  87629 bash
+  87804 /snap/firefox/3836/usr/lib/firefox/firefox -contentproc -childID 298 -isForBrowser -prefsLen 33754 -prefMapSize 241998 -jsInitLen 235124 -parentBuildID 20240214103141 -greomni /snap/firefox/3836/usr/lib/firefox/omni.ja -appomni /snap/firefox/3836/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/3836/usr/lib/firefox/browser {6df8c363-8064-45a5-b7b0-fd2574b237e2} 5715 true tab
+  87939 bash script_1
+  87944 xargs ps -o pid,command

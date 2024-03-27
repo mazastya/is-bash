@@ -1,0 +1,25 @@
+#!/bin/bash
+
+temp_file=$(mktemp)
+
+pids=$(ls /proc | grep -E '^[0-9]+$')
+
+for pid in $pids; do
+
+    ppid=$(cat /proc/$pid/status | grep '^PPid' | awk '{print $2}')
+    sum_exec_runtime=$(cat /proc/$pid/sched | grep '^sum_exec_runtime' | awk '{print $3}')
+    nr_switches=$(cat /proc/$pid/sched | grep '^nr_switches' | awk '{print $3}')
+
+    art=0
+    if [ "$nr_switches" -ne 0 ]; then
+        art=$(bc <<< "scale=2; $((sum_exec_runtime / $nr_switches))")
+    fi
+
+    echo "ProcessID=$pid : Parent_ProcessID=$ppid : Average_Running_Time=$art" >> "$temp_file"
+done
+
+sorted_results=$(sort -t '=' -k4 "$temp_file")
+
+echo "$sorted_results"
+echo "$sorted_results" > process_stats.txt
+rm "$temp_file"

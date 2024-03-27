@@ -1,0 +1,13 @@
+#!/bin/bash
+
+max_mem_pid=$(ls /proc | grep -E '^[0-9]+$' | while read -r pid; do
+    if [ -f "/proc/$pid/status" ]; then
+        mem_usage=$(grep "VmRSS:" "/proc/$pid/status" | awk '{print $2}')
+        echo "$pid $mem_usage"
+    fi
+done | sort -nk2 | tail -n1 | awk '{print $1}')
+
+echo "PID процесса с наибольшим использованием оперативной памяти: $max_mem_pid"
+
+top_pid=$(top -b -n1 | awk 'NR==8 {print $1}')
+echo "PID процесса с наибольшим использованием оперативной памяти (top): $top_pid"

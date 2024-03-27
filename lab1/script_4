@@ -1,0 +1,12 @@
+#!/bin/bash
+
+home_dir="$HOME"
+current_dir=$(pwd)
+
+if [ "$current_dir" = "$home_dir" ]; then
+    echo "Путь к домашней директории: $home_dir"
+    exit 0
+else
+    echo "Error: Скрипт не запущен из домашней директории"
+    exit 1
+fi

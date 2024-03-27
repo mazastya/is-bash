@@ -1,0 +1,4 @@
+#!/bin/bash
+
+last_pid=$(ps -eo pid --sort=-start_time | head -n 2 | tail -n 1)
+echo "PID процесса, запущенного последним: $last_pid"

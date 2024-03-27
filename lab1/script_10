@@ -1,0 +1,8 @@
+#!/bin/bash
+
+command="bash"
+
+man_content=$(man "$command" | awk '{ for(i=1; i<=NF; i++) 
+if(length($i) >= 4) print tolower($i) }')
+
+echo "$man_content" | awk '{ count[$0]++ } END { for(word in count) print word, count[word] }' | sort -k2nr | head -n3

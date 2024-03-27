@@ -1,0 +1,22 @@
+#!/bin/bash
+
+start_time=$(date +%s)
+duration=60
+
+temp_file=$(mktemp)
+
+for pid in $(ps -eo pid); do
+    cmdline=$(tr -d '\0' < "/proc/$pid/cmdline")
+
+    read_bytes=$(grep "read_bytes" "/proc/$pid/io" | awk '{print $2}')
+
+    echo "$pid:$cmdline:$read_bytes" >> "$temp_file"
+done
+
+sleep $duration
+
+sorted_results=$(sort -t ':' -k3 -nr "$temp_file")
+
+echo "$sorted_results2" | head -n 3
+
+rm "$temp_file"

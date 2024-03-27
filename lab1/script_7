@@ -1,0 +1,8 @@
+#!/bin/bash
+
+output_file="emails.lst"
+
+# Используем find для поиска всех файлов в директории /etc и передаем результат в xargs
+find /etc -type f -exec grep -E -o '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b' {} \; | sort | uniq | tr '\n' ',' | sed 's/,$//' > "$output_file"
+
+echo "Результаты сохранены в файле $output_file"

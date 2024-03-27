@@ -1,0 +1,31 @@
+#!/bin/bash
+#max_num=`echo "\$1 > \$2 && echo \$1 || echo \$2" | bc`
+#max_num = $(echo "$max_num > \$3 && echo $max_num || echo \$3" | bc)
+#echo "$max_num"
+
+#if [[ $# -ne 3 ]] ; then
+#    echo "you need num1 num2 num3"
+#    exit 1
+#fi
+
+#max_num="$1"
+#if [[ "$max_num" -lt "$2" ]] ;then
+#    max_num="$2"
+#fi
+
+#if [[ "$max_num" -lt "$3" ]] ;then
+#    max_num="$3"
+#fi
+
+#echo "$max_num"
+
+
+#!/bin/bash
+
+if [ "$#" -ne 3 ]; then
+    echo "Error: Пожалуйста, передайте три целых числа в качестве аргументов"
+    exit 1
+fi
+
+echo "$@" | tr ' ' '\n' | sort -n -r | head -n1
+

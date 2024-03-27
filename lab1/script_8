@@ -1,0 +1,10 @@
+#!/bin/bash
+
+input_file="/etc/passwd"
+
+if [ ! -f "$input_file" ]; then
+    echo "Ошибка: входной файл не существует"
+    exit 1
+fi
+
+cat "$input_file" | awk -F: '{ printf "%s: %s\n", $1, $3 }' | sort -t: -k2n

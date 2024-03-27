@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#user="user"
+user="mazastya"
+process_count=$(pgrep -u $user | wc -l)
+echo $process_count > process_count.txt
+
+# Вывод пар PID:команда для процессов, запущенных пользователем
+pgrep -u $user | xargs ps -o pid,command > process_list.txt
+echo "Количество процессов: $process_count"
+echo "Список процессов и их команд сохранен в файл process_list.txt."

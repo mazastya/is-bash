@@ -1,0 +1,14 @@
+#!/bin/bash
+
+input_file="/home/mazastya/lab1/syslog"
+output_file="info.log"
+
+if [ ! -f "$input_file" ]; then
+    echo "Ошибка: входной файл не существует"
+    exit 1
+fi
+
+awk '{ if ($2 == "INFO") print }' "$input_file" > "$output_file"
+
+echo "Строки с полем INFO были сохранены в файл $output_file"
+

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+temp_file=$(mktemp)
+
+unique_ppids=$(awk -F '=' '{print $2}' process_stats.txt | awk -F ':' '{print $1}' | sort -u)
+
+while read -r ppid; do
+    filtered_results=$(grep "Parent_ProcessID=$ppid" process_stats.txt)
+
+    count=$(echo "$filtered_results" | wc -l)
+    total_art=0
+    while read -r line; do
+        art=$(echo "$line" | awk -F '=' '{print $4}' | awk -F ':' '{print $1}')
+        total_art=$(bc <<< "$total_art + $art")
+    done <<< "$filtered_results"
+
+    avg_art=$(bc <<< "scale=2; $total_art / $count")
+
+    echo "Average_Running_Children_of_ParentID=$ppid is $avg_art" >> "$temp_file"
+
+    echo "$filtered_results" >> "$temp_file"
+done <<< "$unique_ppids"
+
+cp "$temp_file" process_stats.txt
+cat process_stats.txt
+
+rm "$temp_file"

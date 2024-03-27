@@ -1,0 +1,15 @@
+#!/bin/bash
+
+input_file="/home/mazastya/lab1/X.log"
+output_file="full.log"
+
+if [ ! -f "$input_file" ]; then
+    echo "Error: входной файл не существует"
+    exit 1
+fi
+
+awk '/WARNING/ { print "Warning:", $0 } /INFO/ { print "Information:", $0 }' "$input_file" > "$output_file"
+
+cat "$output_file"
+
+echo "Результаты сохранены в файле $output_file и выведены на экран"
