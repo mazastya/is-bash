@@ -1,0 +1,51 @@
+#!/bin/bash
+
+get_cpu_usage() {
+  top -bn1 | grep "Cpu(s)" | awk '{print $2}' | awk -F. '{print $1}'
+}
+
+stop_process() {
+  pid=$1
+  kill $pid
+}
+
+process1() {
+  while true; do
+    result=$(expr 10 \* 10)
+  done
+}
+
+process2() {
+  while true; do
+    result=$(expr 10 \* 10)
+  done
+}
+
+process3() {
+  while true; do
+    result=$(expr 10 \* 10)
+  done
+}
+
+process1 & pid1=$!
+process2 & pid2=$!
+process3 & pid3=$!
+
+while true; do
+  cpu_usage=$(get_cpu_usage)
+  if [ $cpu_usage -gt 10 ]; then
+    kill -SIGSTOP $pid1
+  else
+    kill -SIGCONT $pid1
+  fi
+  sleep 0.1
+done
+
+while true; do
+  cpu_usage=$(get_cpu_usage)
+  if [ $cpu_usage -gt 10 ]; then
+    echo "Первый процесс превысил ограничение 10%!"
+    break
+  fi
+  sleep 1
+done

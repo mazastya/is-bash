@@ -1,0 +1,48 @@
+#!/bin/bash
+
+handle_signal() {
+  echo "Получен сигнал завершения"
+  kill $third_process
+  exit 0
+}
+
+check_cpu_usage() {
+  while true; do
+    cpu_usage=$(ps -p $first_process -o %cpu | awk 'NR==2 {print $1}')
+    if (( $(echo "$cpu_usage > 10.0" | bc -l) )); then
+      renice +10 $first_process
+    fi
+    sleep 1
+  done
+}
+
+echo "Запуск трех процессов..."
+
+((first_process = ($$+1) % 100000))
+((second_process = ($$+2) % 100000))
+((third_process = ($$+3) % 100000))
+
+echo "PID первого процесса: $first_process"
+echo "PID второго процесса: $second_process"
+echo "PID третьего процесса: $third_process"
+
+echo "Запуск первого процесса..."
+while true; do
+  result=$((2*2))
+done &
+echo "Запуск второго процесса..."
+while true; do
+  result=$((3*3))
+done &
+
+echo "Запуск функции проверки загрузки процессора..."
+check_cpu_usage &
+
+trap "handle_signal" SIGTERM
+
+echo "Запуск третьего процесса..."
+while true; do
+  result=$((4*4))
+done &
+
+wait

@@ -1,0 +1,10 @@
+#!bin/bash
+echo $$ > .pid
+
+mkfifo stream
+
+while true
+do
+  read line
+  echo "$line" > stream
+done

@@ -1,0 +1,45 @@
+#!bin/bash
+function killer() {
+  killall tail
+  kill $(cat .pid)
+  exit $1
+}
+
+let mode=0
+let acc=1
+reg_exp='^-?[0-9]+$'
+
+(tail -f stream) | while true; do
+	read LINE
+	case $LINE in
+		"QUIT")
+			echo "Exit"
+			killer
+			;;
+		"+")
+			echo "Switched to adding"	
+			mode=0
+			;;
+		"*")
+			echo "Switched to multiplying"
+			mode=1
+			;;
+		*)
+			if [[ $LINE =~ $reg_exp ]]; then
+				case $mode in
+					0)
+						echo "adding"
+						acc=$(($acc + $LINE))
+						;;
+					1)
+						echo "multiplying"
+						acc=$(($acc * $LINE))
+						;;
+				esac
+				echo "res: $acc"
+			else
+				killer
+			fi
+			;;
+	esac
+done

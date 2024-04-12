@@ -1,0 +1,24 @@
+#!bin/bash
+infinite_loop() {
+    while true; do
+        result=$(( 2 * 2 ))
+    done
+}
+
+
+infinite_loop &
+pid1=$!
+infinite_loop &
+pid2=$!
+infinite_loop &
+pid3=$!
+
+cpulimit -p $pid1 -l 10 &
+
+echo "PID 1: $pid1, PID 2: $pid2, PID 3: $pid3"
+
+sleep 30
+
+kill $pid3
+
+top -b -n 1 -p $pid1 | grep -E "^%Cpu|KiB Mem|PID|$pid1"

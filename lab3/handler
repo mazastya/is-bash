@@ -1,0 +1,25 @@
+#!/bin/bash
+
+handle_usr1() {
+  result=$((result + 2))
+}
+
+handle_usr2() {
+  result=$((result * 2))
+}
+
+trap "echo 'SIGTERM сигнал получен!'; exit 0" SIGTERM
+
+result=1
+
+while true; do
+  echo "Текущее значение: $result"
+  sleep 1
+done &
+
+handler_pid=$!
+
+trap "handle_usr1" USR1
+trap "handle_usr2" USR2
+
+wait $handler_pid

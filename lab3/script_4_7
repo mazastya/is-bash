@@ -1,0 +1,22 @@
+#!/bin/bash
+
+pid1=$1
+
+while true
+do
+cpu1=$(top -bp $pid1 -o "%CPU" -n 1 | tail -n 1 | awk '{print $9}')
+
+out=$(lua<<<"if ($cpu1>=10.0) then print(1) else print(0) end")
+
+echo $cpu1
+sleep 0.1
+
+if [ "$out" = "1" ];
+then
+  kill -SIGSTOP $pid1
+  sleep 0.1
+else
+  kill -SIGCONT $pid1
+  sleep 0.1
+fi
+done

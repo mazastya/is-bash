@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Функция обработки сигнала для завершения третьего процесса
+handle_signal() {
+  echo "Получен сигнал завершения"
+  kill $third_process
+  exit 0
+}
+
+# Функция для проверки загрузки процессора первым процессом
+check_cpu_usage() {
+  while true; do
+    cpu_usage=$(top -b -n 1 | grep "PID $first_process" | awk '{print $9}')
+    if (( $(echo "scale=2; $cpu_usage > 10.0" | bc -l) )); then
+      # Если загрузка процессора больше 10%, снижаем приоритет
+      renice +10 $first_process
+    fi
+    sleep 1
+  done
+}
+
+# Запуск трёх фоновых процессов
+echo "Запуск трёх процессов..."
+((first_process = ($$+1) % 100000))
+((second_process = ($$+2) % 100000))
+((third_process = ($$+3) % 100000))
+
+echo "PID первого процесса: $first_process"
+echo "PID второго процесса: $second_process"
+echo "PID третьего процесса: $third_process"
+
+# Запуск первых двух процессов
+echo "Запуск первого процесса..."
+while true; do
+  result=$((2*2))
+done &
+echo "Запуск второго процесса..."
+while true; do
+  result=$((3*3))
+done &
+
+# Запуск функции проверки загрузки первого процесса
+echo "Запуск функции проверки загрузки процессора..."
+check_cpu_usage &
+
+# Обработка сигнала SIGTERM для завершения третьего процесса
+trap "handle_signal" SIGTERM
+
+# Запуск третьего процесса
+echo "Запуск третьего процесса..."
+while true; do
+  result=$((4*4))
+done &
+
+# Ожидание завершения всех процессов
+wait

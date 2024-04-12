@@ -1,0 +1,4 @@
+#!/bin/bash
+nice -n 15 script_4_1.sh&
+nice -n 0 script_4_1.sh&
+nice -n 0 script_4_1.sh&
