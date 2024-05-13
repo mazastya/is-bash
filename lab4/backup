@@ -1,0 +1,61 @@
+#!/bin/bash
+
+backup_dir="/home/mazastya/"
+
+source_dir="/home/mazastya/source/"
+
+if [ ! -d "$source_dir" ]; then
+    echo "Директория $source_dir не существует."
+    exit 1
+fi
+
+current_date=$(date "+%Y-%m-%d")
+
+copy_files() {
+    cp "$1" "$2"
+    echo "Скопирован файл: $1"
+}
+
+create_backup() {
+    cp "$1" "$2.$current_date"
+    echo "Создана резервная копия файла: $2.$current_date"
+}
+
+# Проверка наличия "действующего" каталога резервного копирования
+if [ ! -d "${backup_dir}Backup-$current_date" ]; then
+    echo "Создание нового каталога для резервных копий..."
+    mkdir "${backup_dir}Backup-$current_date"
+    echo "Создан новый каталог: ${backup_dir}Backup-$current_date"
+
+    for file in "$source_dir"*
+    do
+        copy_files "$file" "${backup_dir}Backup-$current_date/"
+    done
+
+    # Логирование
+    echo "Создан новый каталог резервных копий: ${backup_dir}Backup-$current_date, $(date)" >> "${backup_dir}backup-report"
+
+else
+    echo "Найден существующий каталог для резервных копий."
+
+    # Копирование файлов сравнением размеров
+    for file in "$source_dir"*
+    do
+        filename=$(basename "$file")
+        if [ -f "${backup_dir}Backup-$current_date/$filename" ]; then
+            source_size=$(stat -c %s "$file")
+            backup_size=$(stat -c %s "${backup_dir}Backup-$current_date/$filename")
+
+            if [ "$source_size" -ne "$backup_size" ]; then
+                create_backup "$file" "${backup_dir}Backup-$current_date/$filename"
+            fi
+        else
+            copy_files "$file" "${backup_dir}Backup-$current_date/"
+        fi
+    done
+
+    # Логирование
+    echo "Внесены изменения в существующий каталог резервных копий: ${backup_dir}Backup-$current_date, $(date)" >> "${backup_dir}backup-report"
+
+fi
+

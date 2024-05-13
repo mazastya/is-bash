@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <filename>"
+  exit 1
+fi
+
+filename="$1"
+path=$(readlink -f "$0")
+path=$(dirname "$path")
+filename="$path/$filename"
+trash_dir="$HOME/.trash"
+
+if [ ! -d "$trash_dir" ]; then
+  mkdir "$trash_dir"
+fi
+
+linkname="$trash_dir/$(date +%s)"
+ln "$filename" "$linkname"
+
+rm "$filename"
+logfile="$HOME/.trash/trash.log"
+echo "$filename $linkname" >> "$logfile"

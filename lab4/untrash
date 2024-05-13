@@ -1,0 +1,43 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <filename>"
+  exit 1
+fi
+
+filename="$1"
+logfile="$HOME/.trash/trash.log"
+matching_lines=$(grep -F -- "$filename" "$logfile")
+
+if [ -z "$matching_lines" ]; then
+  echo "$filename not found"
+  exit 1
+fi
+
+while IFS= read -r line
+do
+  read -ra paths <<< "$line"
+  orig="${paths[0]}"
+  new="${paths[1]}"
+  read -p "Restore $orig y/n? " confirm <&2
+  if [[ "$confirm" == "y" ]]; then
+    old_dir=$(dirname -- "$orig")
+    if [ -d "$old_dir" ]; then
+      echo "Restore to old folder"
+    else
+      orig="$HOME/$(basename -- "$orig")"
+      echo "Will be restored in HOME path"
+    fi
+    while true; do
+      ln "$new" "$orig"
+      if [ -e "$orig" ]; then
+        rm "$new"
+        echo "Success"
+        break
+      else
+        read -p "Problem with the name. Provide a new one: " new_name
+        orig=$(dirname -- "$orig")/"$new_name"
+      fi
+    done
+  fi
+done <<< "$matching_lines"

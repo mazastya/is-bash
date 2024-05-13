@@ -1,0 +1,13 @@
+#!/bin/bash
+
+restore_dir="/home/mazastya/restore/"
+
+current_date=$(date "+%Y-%m-%d")
+
+latest_backup_dir=$(ls -td /home/mazastya/Backup-$current_date | head -n 1)
+
+# Копируем файлы из самого свежего каталога резервного копирования в каталог для восстановления,
+# при этом исключая файлы с предыдущими версиями
+rsync -av --ignore-existing "$latest_backup_dir" "$restore_dir"
+
+echo "Files restored successfully to $restore_dir"
